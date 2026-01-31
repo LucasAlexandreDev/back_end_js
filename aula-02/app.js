@@ -38,7 +38,7 @@ Operadores de Comparação:
 <=   -> Permite validar se o valor é menor ou igual
 >=   -> Permite validar se o valor é maior ou igual
 ===  -> Permite comparar a igualdade dos conteúdos e a igualdade da tipagem de dados
-!==  -> Permite comparar a diferneça de conteúdos e a igualdade da tipagem de dados
+!==  -> Permite comparar a diferença de conteúdos e a igualdade da tipagem de dados
 ==!  -> Permite comparar a igualdade de conteúdos e a diferença de tipagem de dados 
 
 
@@ -52,7 +52,6 @@ NAO -> NOT -> !
 
 
 // Importe da biblioteca de entrada de dados
-const { ifError } = require('assert')
 const readline = require('readline')
 
 const entradaDeDados = readline.createInterface({
@@ -87,7 +86,7 @@ entradaDeDados.question('Digite o nome do aluno: ', function (nome) {
                     let nota4 = valor4
 
                     // validação de entradas vazias
-                    if(nomeAluno == '' || nota1 == ('') || nota2 == ('') || nota3 == ('') || nota4 == ('')){
+                    if(nomeAluno == '' || nota1 == '' || nota2 == '' || nota3 == '' || nota4 == ''){
 
                         console.log('ERRO: Existem campos obrigatórios que não foram preenchidos !!!')
 
