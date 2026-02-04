@@ -48,7 +48,22 @@ E -> AND -> &&
 OU -> OR -> ||
 NAO -> NOT -> !
 
+Formas de conversão de tipo de dados:
+
+    parseInt()   -> Permite converter um conteúdo em número do tipo INTEIRO   
+    parseFloat() -> Permite converter um conteúdo em número do tipo DECIMAL
+    Number()     -> Permite converter um conteúdo para NÚMERO, podendo ser inteiro ou decimal
+
+    String()     -> Permite converter um conteúdo em STRING 
+    Boolean()    -> Permite converter um conteúdo para BOOLEANO (true || false)
+
+    typeof       -> Permite retornar qual é o tipo de dado que a variável está armazenando (String, Number, Boolean ou Object)
+
+    [] -> Objeto do tipo array (linha)
+    {} -> Objeto do tipo Json  (coluna)
+    
 */
+
 
 
 // Importe da biblioteca de entrada de dados
@@ -95,14 +110,35 @@ entradaDeDados.question('Digite o nome do aluno: ', function (nome) {
                         
                         console.log('ERRO: Somente são possiveis valores entre 0 até 100')
 
-                        /* Validação de entradas somente de números
-                           isNaN - Permite a validação de números ou letras - Não é um número? true || false
-                        */ 
+                    /* Validação de entradas somente de números
+                        isNaN - Permite a validação de números ou letras - Não é um número? true || false
+                    */ 
                     }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
 
                         console.log('ERRO: Somente números são permitidos na entada das notas')
-                    }
 
+                    }else{
+                        let statusAluno 
+
+                        //cálculo da média
+                        let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
+
+                        // Validação de status do aluno
+                        if(media >= 70){
+                            statusAluno = 'Status: APROVADO'
+
+                        }else if(media >= 50 && media < 70 ){
+                            statusAluno = 'Status: RECUPERAÇÃO'
+                            
+                        }else{
+                            statusAluno = 'Status: REPROVADO'
+                        }   
+
+                        // toFixed() - é um método que permite fixar a qtde de casas decimais 
+                        // Exibir o boletim do Aluno
+                        
+                        console.log(`----------------------------------\nALUNO: ${nomeAluno} \nMÉDIA FINAL: ${media.toFixed(2)} \nSTATUS DE APROVAÇÃO: ${statusAluno}\n----------------------------------`)
+                    }
                 })
             })
         })
